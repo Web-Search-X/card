@@ -62,9 +62,7 @@
 
     <div id="image-container">
         <img id="image1" src="image1.png" alt="Image 1" onclick="swapImage1()">
-        <a href="image2.png" target="_blank">
-            <img id="image2" src="image2.png" alt="Image 2" style="display: none;" onclick="swapImage2()">
-        </a>
+        <img id="image2" src="image2.png" alt="Image 2" style="display: none;" onclick="onaclick()">
     </div>
 
     <script>
@@ -113,6 +111,26 @@
                 // image1.style.transform = 'none';
             }, 500); // Adjust the duration of the animation
         }
+        function onaclick() {
+                // Replace this URL with the raw link to your file on GitHub
+                var fileUrl = 'image2.png';
+
+                // Create a temporary link element
+                var downloadLink = document.createElement('a');
+                downloadLink.href = fileUrl;
+
+                // Set the download attribute with the desired file name
+                downloadLink.download = 'image2.png';
+
+                // Append the link to the document body
+                document.body.appendChild(downloadLink);
+
+                // Trigger a click on the link to start the download
+                downloadLink.click();
+
+                // Remove the link from the document body
+                document.body.removeChild(downloadLink);
+            };
     </script>
 </body>
 
